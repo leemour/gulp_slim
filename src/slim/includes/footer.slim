@@ -1,0 +1,9 @@
+#footer
+  .contacts
+    p= contact_tel
+    p= contact_email
+
+  .footer_links
+    - footer_links.each do |link|
+      li
+        a href=link['url'] link['text']

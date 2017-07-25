@@ -27,9 +27,24 @@ var data = {
   keywords: "Ключевики главной",
   body_class: "pages home",
   businesses: [
-    { title: "Fred" },
+    {
+      title: "Fred",
+      image_url: '123'
+    },
     { title: "Bill" },
     { title: "Harry" }
+  ],
+  contact_tel: "+7 812 333-33-33",
+  contact_email: "info@burobiz.ru",
+  footer_links: [
+    {
+      url: '/businesses',
+      text: 'Бизнесы'
+    },
+    {
+      url: '/services',
+      text: 'Услуги'
+    }
   ]
 }
 
@@ -43,6 +58,9 @@ gulp.task('slim', function(){
   gulp.src("src/slim/*.slim")
     .pipe(slim({
       pretty: true,
+      include: true,
+      require: ['slim/include'],
+      options: 'include_dirs=["./src/slim/includes"]',
       data: data
     }))
     .pipe(gulp.dest("build/html"));
